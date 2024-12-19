@@ -1,0 +1,25 @@
+@import url('./variables.css');
+* {
+  box-sizing: border-box;
+}
+#root {
+  overflow: hidden;
+}
+body {
+  background-color: var(--clr-blue-005, #f5f9ff);
+  color: var(--clr-black-910, #272727);
+}
+
+.hide-scrollbar {
+  scroll-behavior: smooth;
+  /* For Firefox */
+  scrollbar-width: none; /* Hides the scrollbar */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+
+  /* For Chrome, Edge, Safari */
+  overflow: auto; /* Ensures scrolling functionality is maintained */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar */
+}

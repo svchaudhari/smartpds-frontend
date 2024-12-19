@@ -1,0 +1,11 @@
+.verified-user-container{
+  min-width: 98dvw;
+  min-height: 100dvh;
+}
+
+@supports (-moz-appearance: none) {
+  .verified-user-container {
+    width: 100vw;
+    min-height: 100vh;
+  }
+}

@@ -1,0 +1,63 @@
+section.ration-card-container-card-wrapper {
+  margin-top: calc(var(--space) * 1.5);
+  background-color: var(--clr-white-400);
+  border-radius: var(--bdr-8);
+
+  align-self: stretch;
+  flex-grow: 0;
+  gap: 16px;
+  padding: 0 0 calc(var(--space) * 1.5);
+  box-shadow: var(--box-shahow-150);
+
+  header {
+    padding: 10px 24px;
+    background-color: var(--clr-blue-300);
+    border-radius: 8px 8px 0 0;
+
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: -0.2px;
+    text-align: left;
+
+    font-size: var(--text-normal);
+    font-weight: var(--font-bold);
+    color: var(--clr-white-400);
+  }
+
+  .ration-card-container-card-main {
+    padding: 16px 24px;
+
+    &:not(:has(> form)),
+    &:has(> form) > form {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-sm) calc(var(--space) * 1.5);
+    }
+
+    &.columns-2 {
+      &:not(:has(> form)),
+      &:has(> form) > form {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    &.columns-4 {
+      &:not(:has(> form)),
+      &:has(> form) > form {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    &.columns-auto-fit {
+      &:not(:has(> form)),
+      &:has(> form) > form {
+        grid-template-columns: repeat(auto-fit, 1fr);
+      }
+    }
+    &.columns-auto-fill {
+      &:not(:has(> form)),
+      &:has(> form) > form {
+        grid-template-columns: repeat(auto-fill, 1fr);
+      }
+    }
+  }
+}

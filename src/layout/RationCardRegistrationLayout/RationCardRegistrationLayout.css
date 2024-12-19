@@ -1,0 +1,43 @@
+.ration-card-registration-layout-container {
+  --left-width: calc(var(--space) * 2.5);
+  --gap: calc(var(--space) * 2.5);
+
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.ration-card-registration-sidebar-and-main-container {
+  display: flex;
+  justify-content: center;
+
+  background-color: var(--clr-blue-010);
+  height: calc(100dvh - 160px);
+  position: relative;
+
+  .bg-color-div {
+    position: absolute;
+    inset: 0px 0px 0px 0px;
+    z-index: 1;
+    width: 17%;
+    background-color: var(--clr-white-400);
+  }
+}
+
+.ration-card-registration-sidebar-and-main-container
+  .ration-card-registration-content-container {
+  display: flex;
+  width: 100%;
+  max-width: var(--max-width);
+  z-index: 10;
+
+  gap: var(--gap);
+}
+
+.ration-card-registration-sidebar-and-main-container
+  .ration-card-registration-content-container
+  .main {
+  width: calc(100%);
+  display: flex;
+  justify-content: center;
+  padding-top: calc(var(--space) * 2.625);
+}

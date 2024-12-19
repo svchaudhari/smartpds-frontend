@@ -1,0 +1,14 @@
+@import url(./variables.css);
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}

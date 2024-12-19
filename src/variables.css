@@ -1,0 +1,104 @@
+:root {
+  --primary: #f5f9ff;
+  --dark-slate-blue: #1d3670;
+  --space-xs: calc(var(--space) * 0.25);
+  --space-sm: calc(var(--space) * 0.5);
+  --space: 1rem;
+  --space-md: calc(var(--space) * 1.5);
+  --space-lg: calc(var(--space) * 2);
+  --dark-blue: #030229;
+  --dark-secondary: #006c51;
+  --dark-text-1: #666;
+
+  --text-xxs: calc(var(--text-normal) * 0.25);
+  --text-xs: calc(var(--text-normal) * 0.5);
+  --text-small: calc(var(--text-normal) * 0.75);
+  --text-light: calc(var(--space) * 0.875);
+  --text-normal: 16px;
+  --text-medium: calc(var(--text-normal) * 1.5);
+  --text-large: calc(var(--text-normal) * 2);
+
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+  --font-ultra-bold: 800;
+
+  --clr-blue-005: #f5f9ff;
+  --clr-blue-010: #f4f7fe;
+  --clr-blue-110: #cbd5e1;
+  --clr-blue-160: #496ddb;
+  --clr-blue-200: #94a3b8;
+  --clr-blue-300: #011a5a;
+  --clr-blue-700: #030229;
+  --clr-blue-890: #000d2a;
+
+  --clr-black-005: #f7f7f7;
+  --clr-black-100: #666666;
+  --clr-black-200: #a1a1a1;
+  --clr-black-210: #ddd;
+  --clr-black-220: #dedede;
+  --clr-black-300: #4d4c4c;
+  --clr-black-400: #343434;
+  --clr-black-500: #9c9c9c;
+  --clr-black-510: #757575;
+  --clr-black-600: #202020;
+  --clr-black-710: #414141;
+  --clr-black-810: #3b3939;
+  --clr-black-910: #272727;
+
+  --clr-green-010: #f2fcfa;
+  --clr-green-040: #c2f0e8;
+  --clr-green-190: #14e544;
+  --clr-green-250: #4fa394;
+  --clr-green-260: #31b079;
+  --clr-green-270: #31b07966;
+  --clr-green-390: #006c51;
+
+  --clr-red-170: #ff495c;
+  --clr-red-175: #ed5c41;
+  --clr-red-180: #da2f2f;
+
+  --clr-pink-170: #f44336;
+
+  --clr-white-400: #ffffff;
+
+  --box-shadow-clr-200: rgba(112, 144, 176, 0.12);
+  --box-shadow-100: 0 4px 16px 0 rgba(40, 40, 40, 0.08);
+  --box-shahow-150: 0 18px 40px 0 var(--box-shadow-clr-200);
+  --box-shadow-200: 18px 0 40px 0 var(--box-shadow-clr-200);
+
+  --bdr-0: 0px;
+  --bdr: 2px;
+  --bdr-2: var(--bdr);
+  --bdr-4: calc(var(--bdr) * 2);
+  --bdr-6: calc(var(--bdr) * 3);
+  --bdr-8: calc(var(--bdr) * 4);
+  --bdr-10: calc(var(--bdr) * 5);
+  --bdr-16: calc(var(--bdr) * 8);
+
+  --rounded: 50%;
+
+  --max-width: 1280px;
+}
+
+/* For screen sizes 1400px or higher */
+@media screen and (min-width: 1400px) {
+  :root {
+    --max-width: 1280px;
+  }
+}
+
+/* For screen sizes between 1280px and 1399px */
+@media screen and (max-width: 1399px) and (min-width: 1280px) {
+  :root {
+    --max-width: 1120px;
+  }
+}
+
+/* For screen sizes less than 1280px */
+@media screen and (max-width: 1279px) {
+  :root {
+    --max-width: 1200px;
+  }
+}

@@ -1,0 +1,110 @@
+.avatar-upload-container {
+  border: 2px dashed var(--clr-blue-110);
+  padding: calc(var(--space) * 2.25) calc(var(--space) * 2.75);
+  text-align: center;
+  border-radius: var(--border-radius);
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+  flex-grow: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: var(--box-shahow-150);
+  background-color: var(--clr-blue-005);
+
+  &:has(span:focus-visible),
+  &.active {
+    border: 1px solid var(--clr-green-260);
+    background-color: var(--clr-blue-005);
+  }
+}
+
+.avatar-upload-container.disabled {
+  background-color: var(--disabled-color);
+  cursor: not-allowed;
+}
+
+.avatar-image-parent-container {
+  gap: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-light);
+}
+
+.avatar-image-parent-container,
+.avatar-image-parent-container .avatar-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.avatar-image-parent-container .avatar-image-container {
+  height: 7rem;
+  aspect-ratio: 1/1;
+  width: 7rem;
+  border: 1px dashed #d4ddf7;
+  border-radius: 50%;
+  padding: 12px;
+  background-color: var(--clr-white-400);
+}
+
+.avatar-image-parent-container .avatar-image-container img {
+  max-height: 100%;
+  height: auto;
+  display: block;
+}
+
+.avatar-image-parent-container p {
+  margin: 0;
+  font-size: 1rem;
+}
+.avatar-image-parent-container .upload-container {
+  display: flex;
+  gap: calc(var(--space) * 0.625);
+}
+.avatar-image-parent-container .upload-container .upload-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar-image-parent-container .upload-container .upload-text-helper-container {
+  flex-grow: 0;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  font-size: var(--text-light);
+  font-weight: var(--font-medium);
+  text-align: left;
+  color: var(--clr-black-510);
+
+  white-space: nowrap;
+}
+
+.avatar-image-parent-container
+  .upload-container
+  .upload-text-helper-container
+  p {
+  font-size: var(--text-light);
+  font-weight: var(--font-medium);
+  user-select: none;
+  span {
+    font-weight: var(--font-semi-bold);
+    color: var(--clr-blue-160);
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+  &:nth-child(2) {
+    font-size: 12px;
+  }
+}

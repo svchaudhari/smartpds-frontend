@@ -1,0 +1,55 @@
+.ration-card-container-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ration-card-container-card-header > :first-child {
+  text-align: center;
+  display: flex;
+  align-items: center;
+
+  align-self: stretch;
+  flex-grow: 0;
+  font-size: calc(var(--text-normal) * 1.25);
+  font-weight: 800;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: -0.3px;
+  text-align: left;
+  color: var(--clr-blue-700);
+}
+
+.ration-card-container-card-header > :nth-child(2) {
+  display: flex;
+  gap: var(--space);
+}
+
+.ration-card-container-card-header .counter-container > div {
+  padding: 8px 12px;
+  border-radius: var(--bdr-4);
+  border: 1px solid var(--clr-blue-110);
+  background-color: var(--clr-white-400);
+
+  & p {
+    span {
+      opacity: 0.4;
+      flex-grow: 0;
+      font-size: var(--text-small);
+      font-weight: var(--font-normal);
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: var(--clr-blue-890);
+    }
+
+    b {
+      font-size: calc(var(--text-normal) * 0.875);
+      font-weight: var(--font-semi-bold);
+      color: var(--clr-blue-890);
+      opacity: 1;
+    }
+  }
+}

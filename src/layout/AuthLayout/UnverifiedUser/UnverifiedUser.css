@@ -1,0 +1,124 @@
+.unverified-user-container {
+  --space: 1rem;
+  --dark-slate-blue: #1d3670;
+  --dark-blue: #030229;
+  --dark-secondary: #006c51;
+  --dark-text-1: #666;
+  --text-normal: 16px;
+  --text-large: 32px;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+  --font-ultra-bold: 800;
+  min-width: 98dvw;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  padding-bottom: var(--space);
+}
+
+.unverified-user-content-container{
+  width: 100%;
+  max-width: 1440px;
+  padding: calc(var(--space) * 2);
+  display: flex;
+  flex-direction: row;
+  gap: calc(var(--space) * 2);
+}
+
+.unverified-user-content-container .left{
+  display: block;
+  width: calc(var(--space) * 32);
+  min-height: 100%;
+  max-height: fit-content;
+  padding: calc(var(--space) * 1.5) calc(var(--space) * 3.75) calc(var(--space) * 4.5) calc(var(--space) * 2.75);
+  border-radius: 16px;
+  background-image: linear-gradient(140deg, var(--dark-slate-blue) 3%, #050a14 161%);
+}
+
+@supports (-moz-appearance: none) {
+  .unverified-user-container {
+    width: 100vw;
+    min-height: 100vh;
+  }
+}
+
+.bottom-container{
+  margin-top: calc(var(--space) * 5.875);
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+  max-height: 800px;
+}
+
+.National-Food-Security-moto{
+  color: white;
+  font-size: calc(var(--text-normal) * 1.25);
+  font-weight: var(--font-semi-bold);
+
+  text-transform: uppercase;
+
+  p{
+    width: 100%;
+
+    &:first-child{
+      margin-left: calc(var(--space) * 0.5);
+    }
+  }
+
+  p:has(strong) {
+    text-align: center;
+  }
+
+  strong{
+    font-weight: var(--font-ultra-bold);
+    -webkit-text-stroke: 0.6px white;
+    font-size: calc(var(--text-normal) * 1.875);
+    line-height: 1;
+    letter-spacing: 1.5px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: 1.5px;
+    text-align: left;
+    color: white;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+}
+
+.carousal-container{
+  background-color: white;
+  width: calc(var(--space) * 21.875);
+  height: calc(var(--space) * 22.875);
+  margin: calc(var(--space) * 4.75) calc(var(--space) * 2.5) 0 var(--space);
+  padding: calc(var(--space)*6) calc(var(--space) * 1.5) calc(var(--space) * 1.75) calc(var(--space) * 1.25);
+  border-radius: 16px;
+
+
+  color: #e02626;
+  background-color: beige;
+}
+.carousal-container .carousal-content-container{
+  position: relative;
+  height: 100%;
+}
+
+.carousel-root{
+  
+}
+
+.carousal-container .moto{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: var(--dark-secondary);
+  font-size: var(--text-normal);
+  font-weight: var(--font-ultra-bold);
+  font-stretch: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: left;
+}

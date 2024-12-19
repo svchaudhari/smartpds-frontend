@@ -1,0 +1,108 @@
+:root {
+  --primary-color: var(--clr-green-260);
+  --error-color: var(--clr-red-170);
+  --text-color: var(--clr-blue-700);
+  --disabled-color: var(--clr-black-110);
+  --border-radius: 4px;
+}
+
+.controller-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  flex-grow: 0;
+  font-size: calc(var(--text-normal) * 0.875);
+  font-weight: var(--font-semi-bold);
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: -0.06px;
+  text-align: left;
+  color: var(--clr-blue-700);
+
+  &.row-span-1 {
+    grid-row: span 1;
+  }
+  &.row-span-2 {
+    grid-row: span 2;
+  }
+  &.row-span-3 {
+    grid-row: span 3;
+  }
+  &.row-span-4 {
+    grid-row: span 4;
+  }
+  &.col-span-1 {
+    grid-column: span 1;
+  }
+  &.col-span-2 {
+    grid-column: span 2;
+  }
+  &.col-span-3 {
+    grid-column: span 3;
+  }
+  &.col-span-4 {
+    grid-column: span 4;
+  }
+}
+
+.controller-label {
+  font-size: calc(var(--text-normal) * 0.875);
+  color: var(--clr-blue-700);
+  margin-bottom: 0.5rem;
+
+  .required-mark {
+    color: var(--clr-red-170);
+  }
+}
+
+.controller-input {
+  color: var(--clr-blue-300);
+  border: 1px solid var(--clr-blue-110);
+  border-radius: var(--border-radius);
+  outline: none;
+  transition: border-color 0.3s ease;
+  background-color: transparent;
+
+  flex-grow: 0;
+  font-size: calc(var(--text-normal) * 0.875);
+  font-weight: var(--font-semi-bold);
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: -0.11px;
+  text-align: left;
+  color: var(--clr-blue-300);
+
+  align-self: stretch;
+  flex-grow: 0;
+  gap: calc(var(--space) * 0.625);
+  padding: calc(var(--space) * 0.875) var(--space);
+  border-radius: var(--bdr-4);
+  border: solid 1px var(--clr-blue-110);
+
+  &::placeholder {
+    color: var(--clr-blue-200);
+    font-weight: var(--font-normal);
+  }
+}
+
+.controller-input:focus {
+  border-color: var(--primary-color);
+}
+
+.controller-input.error {
+  border-color: var(--error-color);
+}
+
+.controller-input:disabled {
+  background-color: var(--disabled-color);
+  cursor: not-allowed;
+}
+
+.controller-error {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}

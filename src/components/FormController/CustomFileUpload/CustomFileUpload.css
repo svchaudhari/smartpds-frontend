@@ -1,0 +1,31 @@
+.file-upload-container {
+  border: 2px dashed var(--clr-blue-110);
+  padding: 1rem;
+  text-align: center;
+  border-radius: var(--border-radius);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex-grow: 1;
+
+  display: flex;
+  align-items: center;
+
+  box-shadow: var(--box-shahow-150);
+  background-color: var(--clr-blue-005);
+}
+
+.file-upload-container.active {
+  border: 2px solid var(--clr-green-260);
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.file-upload-container.disabled {
+  background-color: var(--disabled-color);
+  cursor: not-allowed;
+}
+
+.file-upload-container p {
+  margin: 0;
+  font-size: 1rem;
+}
