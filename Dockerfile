@@ -4,7 +4,13 @@ WORKDIR /app
 
 # Leverage caching by installing dependencies first
 COPY package*.json ./
-RUN npm install
+
+# Clear npm cache and upgrade npm
+RUN npm cache clean --force
+RUN npm install -g npm@latest
+
+# Install dependencies with additional flags for compatibility
+RUN npm install --legacy-peer-deps --verbose
 
 # Copy the rest of the application code and build for production
 RUN npm run build
