@@ -18,7 +18,7 @@ WORKDIR /app
 RUN npm ci  --prefer-offline
 
 # Copy the full source code
-COPY . ./
+#COPY . ./
 
 # Expose port for the development server
 EXPOSE 3000
