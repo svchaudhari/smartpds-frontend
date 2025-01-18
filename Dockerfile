@@ -1,6 +1,7 @@
 # Stage 1: Build the React app
 FROM node:23-alpine3.20 AS build
 WORKDIR /app
+
 ARG NPM_PROXY=http://192.0.2.12:8080
 ARG NPM_HTTPS_PROXY=http://192.0.2.12:8080
 RUN npm config set proxy $NPM_PROXY && npm config set proxy $NPM_HTTPS_PROXY
