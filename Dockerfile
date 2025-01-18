@@ -1,22 +1,22 @@
 # Stage 1: Build the React app
-FROM node:23-alpine3.20 AS build
+FROM node:18-alpine AS build
 WORKDIR /app
 
 # Leverage caching by installing dependencies first
 COPY package.json package-lock.json ./
-RUN npm install --legacy-peer-deps --verbose
+RUN npm install --verbose
 
 # Copy the rest of the application code and build for production
 COPY . ./
 RUN npm run build
 
 # Stage 2: Development environment
-FROM node:23-alpine3.20 AS development
+FROM node:18-alpine AS development
 WORKDIR /app
 
 # Install dependencies again for development
 COPY package.json package-lock.json ./
-RUN npm install --legacy-peer-deps --verbose
+RUN npm install --verbose
 
 # Copy the full source code
 COPY . ./
