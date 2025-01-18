@@ -1,5 +1,5 @@
 # Stage 1: Build the React app
-FROM 23-alpine3.20 AS build
+FROM node:23-alpine3.20 AS build
 WORKDIR /app
 
 # Leverage caching by installing dependencies first
@@ -10,7 +10,7 @@ RUN npm install
 RUN npm run build
 
 # Stage 2: Development environment
-FROM 23-alpine3.20 AS build
+FROM node:23-alpine3.20 AS development
 WORKDIR /app
 
 # Install dependencies again for development
