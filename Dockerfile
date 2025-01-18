@@ -1,5 +1,5 @@
 # Stage 1: Build the React app
-FROM node:18-alpine AS build
+FROM 23-alpine3.20 AS build
 WORKDIR /app
 
 # Leverage caching by installing dependencies first
