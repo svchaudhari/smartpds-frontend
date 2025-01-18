@@ -10,7 +10,7 @@ RUN npm install
 RUN npm run build
 
 # Stage 2: Development environment
-FROM node:18-alpine AS development
+FROM 23-alpine3.20 AS build
 WORKDIR /app
 
 # Install dependencies again for development
