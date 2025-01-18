@@ -3,11 +3,10 @@ FROM node:18-alpine AS build
 WORKDIR /app
 
 # Leverage caching by installing dependencies first
-COPY package.json package-lock.json ./
-RUN npm install --frozen-lockfile
+COPY package*.json ./
+RUN npm ci  --prefer-offline
 
 # Copy the rest of the application code and build for production
-COPY . ./
 RUN npm run build
 
 # Stage 2: Development environment
@@ -15,8 +14,8 @@ FROM node:18-alpine AS development
 WORKDIR /app
 
 # Install dependencies again for development
-COPY package.json package-lock.json ./
-RUN npm install --frozen-lockfile
+
+RUN npm ci  --prefer-offline
 
 # Copy the full source code
 COPY . ./
