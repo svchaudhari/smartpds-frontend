@@ -1,9 +1,13 @@
 # Stage 1: Build the React app
-FROM node:18-alpine AS build
+FROM node:23-alpine3.20 AS build
 WORKDIR /app
+ARG NPM_PROXY=http://192.0.2.12:8080
+ARG NPM_HTTPS_PROXY=http://192.0.2.12:8080
+RUN npm config set proxy $NPM_PROXY && npm config set proxy $NPM_HTTPS_PROXY
 
 # Leverage caching by installing dependencies first
 COPY package.json package-lock.json ./
+
 RUN npm install --verbose
 
 # Copy the rest of the application code and build for production
@@ -11,7 +15,7 @@ COPY . ./
 RUN npm run build
 
 # Stage 2: Development environment
-FROM node:18-alpine AS development
+FROM node:23-alpine3.20 AS development
 WORKDIR /app
 
 # Install dependencies again for development
