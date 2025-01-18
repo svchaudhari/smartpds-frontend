@@ -6,6 +6,8 @@ pnpm-lock.yaml
 # Build output
 dist/
 dist-ssr/
+build/
+build-ssr/
 
 # Vite cache
 .vite/
@@ -56,3 +58,4 @@ Thumbs.db
 
 # Ignore files for local development
 *.local
+*.local.*

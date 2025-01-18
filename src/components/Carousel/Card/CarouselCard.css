@@ -1,18 +1,4 @@
-.carousel-card-container{
-  --space: 1rem;
-  --dark-slate-blue: #1d3670;
-  --dark-blue: #030229;
-  --dark-secondary: #006c51;
-  --warning: #e02626;
-  --dark-text-1: #666;
-  --font-normal: 16px;
-  --font-large: 32px;
-  --font-medium: 500;
-  --font-semi-bold: 600;
-  --font-bold: 700;
-  --font-ultra-bold: 800;
-}
-.carousel-card-container h3{
+.carousel-card-container h3 {
   align-self: stretch;
   flex-grow: 0;
   font-size: 14px;
@@ -22,10 +8,10 @@
   line-height: normal;
   letter-spacing: 0.28px;
   text-align: left;
-  color: var(--dark-text-1);
+  color: var(--clr-black-100);
   text-transform: uppercase;
 }
-.carousel-card-container strong{
+.carousel-card-container strong {
   height: 45px;
   margin: 0 18px 3.7px 0;
   font-size: 36px;
@@ -35,13 +21,13 @@
   line-height: normal;
   letter-spacing: normal;
   text-align: left;
-  color: var(--dark-blue);
+  color: var(--clr-blue-700);
 }
 
-.increase{
-  color: var(--dark-secondary);
+.increase {
+  color: var(--clr-green-390);
 }
 
-.decrease{
-  color: var(--warning);
+.decrease {
+  color: var(--clr-pink-170);
 }

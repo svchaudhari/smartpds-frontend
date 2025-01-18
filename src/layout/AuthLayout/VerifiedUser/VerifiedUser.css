@@ -1,11 +1,17 @@
-.verified-user-container{
+.verified-user-container {
   min-width: 98dvw;
   min-height: 100dvh;
+}
+.verified-user-content-container {
+  height: calc(100dvh - 80px);
 }
 
 @supports (-moz-appearance: none) {
   .verified-user-container {
     width: 100vw;
     min-height: 100vh;
+  }
+  .verified-user-content-container {
+    height: calc(100vh - 80px);
   }
 }

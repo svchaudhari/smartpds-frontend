@@ -1,12 +1,13 @@
 import './CustomDateOfBirthDropDown.css';
 
+export type DateOfBirth = {
+  day?: string;
+  month?: string;
+  year?: string;
+};
 interface CustomDateOfBirthDropDownProps {
   field: {
-    value: {
-      day?: string;
-      month?: string;
-      year?: string;
-    };
+    value: DateOfBirth;
     onChange: (value: { day?: string; month?: string; year?: string }) => void;
   };
   disabled?: boolean;

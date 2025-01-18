@@ -51,9 +51,16 @@
   font-size: calc(var(--text-normal) * 0.875);
   color: var(--clr-blue-700);
   margin-bottom: 0.5rem;
+  user-select: none;
+  white-space: nowrap;
+  text-wrap: pretty;
 
   .required-mark {
     color: var(--clr-red-170);
+  }
+
+  &.disabled {
+    opacity: 0.3;
   }
 }
 
@@ -63,7 +70,7 @@
   border-radius: var(--border-radius);
   outline: none;
   transition: border-color 0.3s ease;
-  background-color: transparent;
+  background-color: var(--clr-white-400);
 
   flex-grow: 0;
   font-size: calc(var(--text-normal) * 0.875);
@@ -75,10 +82,12 @@
   text-align: left;
   color: var(--clr-blue-300);
 
+  width: 100%;
+
   align-self: stretch;
   flex-grow: 0;
   gap: calc(var(--space) * 0.625);
-  padding: calc(var(--space) * 0.875) var(--space);
+  padding: var(--text-light) var(--space);
   border-radius: var(--bdr-4);
   border: solid 1px var(--clr-blue-110);
 
@@ -86,6 +95,28 @@
     color: var(--clr-blue-200);
     font-weight: var(--font-normal);
   }
+  &:has(input[type='radio']) {
+    border: none;
+  }
+  &:is(:-webkit-autofill, :autofill) {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) inset !important;
+    background-color: var(--clr-white-400) !important;
+    -webkit-text-fill-color: var(--clr-blue-300) !important;
+    border: 1px solid var(--clr-blue-200) !important;
+    transition:
+      background-color 0.3s ease,
+      box-shadow 0.3s ease !important;
+  }
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+  background-color: var(--clr-white-400) !important;
+  -webkit-text-fill-color: var(--clr-blue-300) !important;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) inset !important;
+  border: 1px solid var(--clr-blue-200) !important;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease !important;
 }
 
 .controller-input:focus {

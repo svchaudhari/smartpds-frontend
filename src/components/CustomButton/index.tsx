@@ -3,13 +3,7 @@ import './CustomButton.css';
 
 interface CustomButtonProps {
   type?: 'default' | 'contained' | 'outlined';
-  variant?:
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'error'
-    | 'info'
-    | 'warning';
+  variant?: 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
   disabled?: boolean;
   iconLeft?: React.ReactNode;
   iconRight?: React.ReactNode;
@@ -19,7 +13,9 @@ interface CustomButtonProps {
   id?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   children?: React.ReactNode;
-  // [key: string]: string | boolean | React.ReactNode | undefined | Function;
+  fullWidth?: boolean;
+  buttonType?: 'button' | 'submit' | 'reset';
+  [key: string]: string | boolean | React.ReactNode | undefined | Function;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -32,8 +28,11 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   size = 'medium',
   name,
   id,
+  buttonType = 'button',
   onClick,
   children,
+  className,
+  fullWidth,
 }) => {
   const buttonClass = [
     'custom-button',
@@ -41,14 +40,16 @@ const CustomButton: React.FC<CustomButtonProps> = ({
     `button-${variant}`,
     `button-${size}`,
     disabled ? 'disabled' : '',
-    width === 'full' ? 'full-width' : '',
+    fullWidth || width === 'full' ? 'full-width' : '',
+    className,
+    `text-nowrap`
   ]
     .filter(Boolean)
     .join(' ');
 
   return (
     <button
-      type="button"
+      type={buttonType}
       name={name}
       id={id}
       className={buttonClass}

@@ -1,0 +1,85 @@
+.ration-card-registration-track-application {
+  width: 100%;
+  height: 100%;
+  padding-left: var(--space-md);
+  padding-bottom: calc(var(--space) * 5);
+}
+
+.application-meta-details-wrapper {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.application-meta-status-wrapper {
+  margin-top: calc(var(--space) * 3.5);
+  background-color: var(--clr-white-400);
+  border-radius: var(--bdr-4);
+  padding: 4rem 3rem;
+
+  display: flex;
+}
+
+.icon-container {
+  width: 6rem;
+
+  display: grid;
+  place-items: center;
+}
+
+.status-details-container {
+  flex: 1;
+  gap: calc(var(--space) * 1.5);
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
+.status-details-container .status-container {
+  padding-top: var(--space);
+  padding-bottom: var(--space);
+  padding-left: calc(var(--space) * 1.5);
+  border-radius: var(--bdr-10);
+  h3 {
+    flex-grow: 0;
+    font-size: var(--text-light);
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--clr-black-300);
+  }
+  b {
+    flex-grow: 0;
+    font-size: calc(var(--text-normal) * 1.25);
+    font-weight: var(--font-bold);
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.6;
+    letter-spacing: -0.54px;
+    text-align: left;
+    color: var(--clr-green-190);
+  }
+  p {
+    align-self: stretch;
+    flex-grow: 0;
+    font-size: var(--text-light);
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--clr-blue-700);
+
+    display: flex;
+    gap: 0.5ch;
+    .note {
+      font-weight: var(--font-bold);
+    }
+  }
+}

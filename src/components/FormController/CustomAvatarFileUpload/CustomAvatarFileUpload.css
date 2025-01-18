@@ -4,8 +4,12 @@
   text-align: center;
   border-radius: var(--border-radius);
   color: var(--text-color);
-  transition: background-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    border 0.3s ease,
+    margin 0.3s ease;
   flex-grow: 1;
+  margin: 0px;
 
   display: flex;
   align-items: center;
@@ -17,7 +21,7 @@
   &:has(span:focus-visible),
   &.active {
     border: 1px solid var(--clr-green-260);
-    background-color: var(--clr-blue-005);
+    margin: 1px;
   }
 }
 

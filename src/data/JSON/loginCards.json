@@ -1,0 +1,56 @@
+{
+  "loginHeading": "Common Registration Facility",
+  "loginDescription": "Sign in using any of the three options listed below",
+  "cards": [
+    {
+      "title": "Sign In with Aadhaar OTP",
+      "description": "Aadhar/UID No. must be registered with your profile details!"
+    },
+    {
+      "title": "Sign In with Login ID",
+      "description": "Aadhar/UID No. must be registered with your profile details!"
+    },
+    {
+      "title": "Sign In with Ration Card No.",
+      "description": "Ration Card No. must be registered with your profile details!"
+    }
+  ],
+  "pages": [
+    {
+      "id": "aadhar-login",
+      "title": "Sign In with Aadhaar OTP",
+      "description": "Aadhar/UID No. must be registered with your profile details!",
+      "inputPlaceholder": "Enter Aadhar Number",
+      "validationText": "Please enter valid Aadhaar Number",
+      "buttonText": "Generate OTP"
+    },
+    {
+      "id": "id-login",
+      "title": "Sign In with Login ID",
+      "description": "Aadhar/UID No. must be registered with your profile details!",
+      "inputPlaceholder": "Login ID",
+      "passwordPlaceholder": "Password",
+      "rememberMe": "Remember Me",
+      "forgotPassText": "Forgot Password",
+      "buttonText": "Sign In",
+      "confirmationText": "Don't have an account?  ",
+      "linkText": "Create Account"
+    },
+    {
+      "id": "ration-card-login",
+      "title": "Sign In with Ration Card No.",
+      "description": "Ration Card No. must be registered with your profile details!",
+      "inputPlaceholder": "Enter Ration Card No.",
+      "validationText": "Please enter valid Ration Card number",
+      "buttonText": "Generate OTP"
+    },
+    {
+      "id": "otp-verify",
+      "title": "Check your mobile for a code",
+      "description1": "We’ve sent a 4-character code to ",
+      "description2": "The code expires shortly, so please enter it soon.",
+      "confirmationText": "Didn't get the code?  ",
+      "resendText": "Send code again"
+    }
+  ]
+}

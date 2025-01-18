@@ -6,7 +6,6 @@ header.verified-user-header-container {
   border-bottom: 1px solid var(--clr-black-005);
   background-color: var(--clr-white-400);
 }
-
 .verified-user-header-content-container {
   max-width: var(--max-width);
   height: 100%;
@@ -28,11 +27,14 @@ header.verified-user-header-container {
   & > button {
     text-align: inherit;
     line-height: 1;
+    width: fit-content;
+    height: fit-content;
   }
   button[name='increase-text-size'] {
-    font-size: (var(--text-normal));
+    font-size: var(--text-normal);
     margin-right: calc(var(--space) * 0.25);
   }
+
   button[name='decrease-text-size'] {
     margin-left: calc(var(--space) * 0.25);
     margin-right: calc(var(--space) * 0.25);
@@ -55,5 +57,43 @@ header.verified-user-header-container {
   label {
     margin-left: calc(var(--space) * 0.125);
     margin-right: calc(var(--space) * 0.5);
+  }
+}
+.verified-user-profile-container {
+  display: flex;
+  gap: 10px;
+}
+
+.verified-user-profile-select-box {
+  background-color: var(--clr-green-240);
+  color: var(--clr-white-400);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: var(--bdr-4);
+  padding: 4px 14px;
+  cursor: pointer;
+  line-height: 20px;
+}
+
+.user-profile-with-count {
+  background-color: var(--clr-red-175);
+  border-radius: 12px;
+  position: relative;
+  padding: 6px;
+  > span {
+    width: 22px;
+    height: 22px;
+    background-color: var(--clr-red-180);
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    color: var(--clr-white-400);
+    font-size: var(--text-xs);
+    z-index: 999;
+    border-radius: var(--rounded);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

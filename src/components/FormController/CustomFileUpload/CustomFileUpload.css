@@ -7,25 +7,96 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   flex-grow: 1;
+  margin: 0px;
 
   display: flex;
   align-items: center;
+  justify-content: center;
 
   box-shadow: var(--box-shahow-150);
   background-color: var(--clr-blue-005);
+  transition:
+    background-color 0.3s ease,
+    border 0.3s ease,
+    opacity 0.3s ease;
+
+  &:has(span:focus-visible),
+  &.active {
+    border: 1px solid var(--clr-green-260);
+    background-color: var(--clr-blue-005);
+    margin: 1px;
+  }
 }
 
 .file-upload-container.active {
   border: 2px solid var(--clr-green-260);
-  background-color: rgba(0, 123, 255, 0.1);
 }
 
 .file-upload-container.disabled {
   background-color: var(--disabled-color);
   cursor: not-allowed;
+
+  & .upload-container .upload-text-helper-container p,
+  & .upload-container .upload-icon-container {
+    opacity: 0.3;
+  }
 }
 
 .file-upload-container p {
   margin: 0;
   font-size: 1rem;
+}
+
+.file-upload-container .upload-container {
+  display: flex;
+  gap: calc(var(--space) * 0.625);
+}
+
+.file-upload-container .upload-container .upload-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-upload-container .upload-container .upload-text-helper-container {
+  flex-grow: 0;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  font-size: var(--text-light);
+  font-weight: var(--font-medium);
+  text-align: left;
+  color: var(--clr-black-510);
+
+  white-space: nowrap;
+}
+
+.file-upload-container .upload-container .upload-text-helper-container p {
+  font-size: var(--text-light);
+  font-weight: var(--font-medium);
+  user-select: none;
+  transition: opacity 0.3s ease-in-out;
+  span {
+    font-weight: var(--font-semi-bold);
+    color: var(--clr-blue-160);
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+  &:nth-child(2) {
+    font-size: 12px;
+  }
+}
+
+.uploaded-file {
+  display: flex;
+}
+
+.uploaded-file-delete {
+  margin: auto var(--space);
 }

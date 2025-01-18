@@ -1,0 +1,36 @@
+[
+  {
+    "id": "language-pack-english",
+    "type": "language-pack",
+    "language": "English",
+    "trackApplication": {
+      "id": "trackApplication-id",
+      "title": "Current Status of the Application",
+      "subTitle": "New Ration Card Application",
+      "trackApplicationDetails": [
+        {
+          "id": "application-number",
+          "title": "Application Number",
+          "value": "RA128967574"
+        },
+        {
+          "id": "application-date",
+          "title": "Application Date",
+          "value": "Nov 14th, 2024"
+        },
+        {
+          "id": "application-name",
+          "title": "Application Name",
+          "value": "Sanjay Krishnan"
+        }
+      ],
+      "applicationStatusDetails": {
+        "id": "applicationStatusDetails",
+        "title": "Application Status",
+        "status": "Application is in Process",
+        "note": "Note",
+        "statusDescription": "Application is forward by #1# to #2# on #3#"
+      }
+    }
+  }
+]

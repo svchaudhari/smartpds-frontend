@@ -8,8 +8,13 @@ export const Images = {
   IndiaEmblemWithMinistryColored: '/public/images/IndiaEmblemWithMinistryColored.webp',
 };
 
+export const Icons = {
+  GreenArrow: '/public/images/greenArrow.svg',
+  GoBack: '/public/images/goBackArrow.svg'
+};
 
 export default {
   Logos,
-  Images
+  Images,
+  Icons
 };

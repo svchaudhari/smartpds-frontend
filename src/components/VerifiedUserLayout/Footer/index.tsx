@@ -1,9 +1,5 @@
-import React from 'react'
-
 const VerifiedUserLayoutFooter = () => {
-  return (
-    <footer>VerifiedUserLayoutFooter</footer>
-  )
-}
+  return <footer>VerifiedUserLayoutFooter</footer>;
+};
 
-export default VerifiedUserLayoutFooter
+export default VerifiedUserLayoutFooter;

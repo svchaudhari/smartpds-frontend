@@ -1,22 +1,18 @@
 :root {
-  --primary: #f5f9ff;
-  --dark-slate-blue: #1d3670;
   --space-xs: calc(var(--space) * 0.25);
   --space-sm: calc(var(--space) * 0.5);
   --space: 1rem;
   --space-md: calc(var(--space) * 1.5);
   --space-lg: calc(var(--space) * 2);
-  --dark-blue: #030229;
-  --dark-secondary: #006c51;
-  --dark-text-1: #666;
 
-  --text-xxs: calc(var(--text-normal) * 0.25);
-  --text-xs: calc(var(--text-normal) * 0.5);
-  --text-small: calc(var(--text-normal) * 0.75);
-  --text-light: calc(var(--space) * 0.875);
+  --text-xxs: calc(var(--text-normal) * 0.25); /* 4px  */
+  --text-xs: calc(var(--text-normal) * 0.5); /* 8px  */
+  --text-thin: calc(var(--text-normal) * 0.625); /* 10px  */
+  --text-small: calc(var(--text-normal) * 0.75); /* 12px  */
+  --text-light: calc(var(--text-normal) * 0.875); /* 14px  */
   --text-normal: 16px;
-  --text-medium: calc(var(--text-normal) * 1.5);
-  --text-large: calc(var(--text-normal) * 2);
+  --text-medium: calc(var(--text-normal) * 1.5); /* 24px  */
+  --text-large: calc(var(--text-normal) * 2); /* 32px  */
 
   --font-normal: 400;
   --font-medium: 500;
@@ -30,6 +26,7 @@
   --clr-blue-160: #496ddb;
   --clr-blue-200: #94a3b8;
   --clr-blue-300: #011a5a;
+  --clr-blue-350: #1d3670;
   --clr-blue-700: #030229;
   --clr-blue-890: #000d2a;
 
@@ -50,6 +47,7 @@
   --clr-green-010: #f2fcfa;
   --clr-green-040: #c2f0e8;
   --clr-green-190: #14e544;
+  --clr-green-240: #4caf50;
   --clr-green-250: #4fa394;
   --clr-green-260: #31b079;
   --clr-green-270: #31b07966;
@@ -58,15 +56,17 @@
   --clr-red-170: #ff495c;
   --clr-red-175: #ed5c41;
   --clr-red-180: #da2f2f;
-
+  --clr-marron-200: #9b3b171a;
   --clr-pink-170: #f44336;
 
   --clr-white-400: #ffffff;
 
+  --box-shadow-clr-100: rgba(16, 24, 40, 0.05);
   --box-shadow-clr-200: rgba(112, 144, 176, 0.12);
   --box-shadow-100: 0 4px 16px 0 rgba(40, 40, 40, 0.08);
   --box-shahow-150: 0 18px 40px 0 var(--box-shadow-clr-200);
   --box-shadow-200: 18px 0 40px 0 var(--box-shadow-clr-200);
+  --box-shadow-120: 0 1px 12px 0 var(--box-shadow-100);
 
   --bdr-0: 0px;
   --bdr: 2px;
@@ -92,13 +92,13 @@
 /* For screen sizes between 1280px and 1399px */
 @media screen and (max-width: 1399px) and (min-width: 1280px) {
   :root {
-    --max-width: 1120px;
+    --max-width: 1200px;
   }
 }
 
 /* For screen sizes less than 1280px */
 @media screen and (max-width: 1279px) {
   :root {
-    --max-width: 1200px;
+    --max-width: calc(100% - var(--space) * 4);
   }
 }

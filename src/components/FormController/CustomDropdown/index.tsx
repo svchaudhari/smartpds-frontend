@@ -1,5 +1,6 @@
 import React from 'react';
 import './CustomDropdown.css';
+import { useFormContext } from 'react-hook-form';
 
 interface CustomDropdownProps {
   options: { label: string; value: string | number }[];
@@ -16,10 +17,16 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
   onChange,
   onBlur,
 }) => {
+  const {
+    formState: { errors, touchedFields, isSubmitted },
+  } = useFormContext();
+
+  const errorMessage = (touchedFields[field.name] || isSubmitted) && errors[field.name]?.message;
+
   return (
     <div className="dropdown-select-container">
       <select
-        className="dropdown-select"
+        className={`dropdown-select ${errorMessage ? 'error' : ''}`}
         onChange={(e) => {
           field.onChange(e);
           onChange?.(e);
@@ -30,9 +37,12 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
         }}
         disabled={disabled}
         value={field.value || ''}
+        aria-invalid={!!errors[field.name]}
+        aria-describedby={errorMessage ? `${field.name}-error` : undefined}
+        name={field.name}
       >
         <option value="" disabled>
-          Select an option
+          Select
         </option>
         {options.map((option) => (
           <option key={option.value} value={option.value}>
@@ -40,6 +50,14 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
           </option>
         ))}
       </select>
+      {errorMessage && (
+        <span
+          id={`${field.name}-error`}
+          className="error-message controller-error"
+        >
+          {errorMessage}
+        </span>
+      )}
     </div>
   );
 };

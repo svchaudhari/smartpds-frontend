@@ -10,6 +10,11 @@ import * as _ from 'lodash';
 import CustomAvatarFileUpload from './CustomAvatarFileUpload';
 import CustomDateOfBirthDropDown from './CustomDateOfBirthDropDown';
 import CustomDropdown from './CustomDropdown';
+import CustomRadioButtons from './CustomRadioButtons';
+import CustomCheckbox from './CustomCheckbox';
+import CustomOtpInput from './CustomOtpInput';
+import CustomToggle from './CustomToggle';
+// import { DevTool } from '@hookform/devtools';
 
 interface ControllerProps {
   name: string;
@@ -22,10 +27,16 @@ interface ControllerProps {
     | 'date-of-birth'
     | 'dropdown'
     | 'file-upload'
-    | 'avatar-upload';
+    | 'avatar-upload'
+    | 'radio'
+    | 'checkbox'
+    | 'otp'
+    | 'toggle';
   id?: string;
   disabled?: boolean;
   readOnly?: boolean;
+  length?: number;
+  value?: number | string;
   placeholder?: string;
   required?: boolean;
   children?: React.ReactNode;
@@ -42,7 +53,7 @@ interface ControllerProps {
     e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
   validate?: (value: any) => string | boolean;
-  options?: { value: string; label: string }[];
+  options?: { value: string | boolean; label: string }[];
 }
 
 const componentMap: Record<string, FC<any>> = {
@@ -54,6 +65,10 @@ const componentMap: Record<string, FC<any>> = {
   'avatar-upload': CustomAvatarFileUpload,
   'date-of-birth': CustomDateOfBirthDropDown,
   dropdown: CustomDropdown,
+  radio: CustomRadioButtons,
+  checkbox: CustomCheckbox,
+  otp: CustomOtpInput,
+  toggle: CustomToggle,
 };
 
 const Controller: FC<ControllerProps> = ({
@@ -61,11 +76,11 @@ const Controller: FC<ControllerProps> = ({
   label,
   type,
   id,
+  length,
   disabled,
   readOnly,
   placeholder,
   children,
-  errorMsg,
   onChange,
   onClick,
   onBlur,
@@ -77,7 +92,7 @@ const Controller: FC<ControllerProps> = ({
 }) => {
   const {
     control,
-    formState: { errors, touchedFields },
+    formState: { errors },
   } = useFormContext();
 
   const Component = componentMap[type];
@@ -88,44 +103,44 @@ const Controller: FC<ControllerProps> = ({
   }
 
   return (
-    <div
-      className={`controller-container row-span-${rowSpan} col-span-${colSpan}`}
-    >
-      {label && (
-        <label
-          htmlFor={id || name}
-          className={`controller-label ${disabled && 'disabled'}`}
-        >
-          {label}
-          {required && <span className="required-mark"> *</span>}
-        </label>
-      )}
-      {!label && children && children}
-      <RHFController
-        name={name}
-        control={control}
-        rules={{ validate }}
-        render={({ field }: { field: any }) => (
-          <Component
-            id={id || name}
-            field={field}
-            disabled={disabled}
-            readOnly={readOnly}
-            placeholder={placeholder}
-            className={`controller-input ${errors[name] ? 'error' : ''}`}
-            onChange={onChange}
-            onClick={onClick}
-            onBlur={onBlur}
-            options={options}
-          />
+    <>
+      <div
+        className={`controller-container row-span-${rowSpan} col-span-${colSpan} `}
+      >
+        {label && (
+          <label
+            htmlFor={id || name}
+            className={`controller-label ${disabled && 'disabled'}`}
+          >
+            {label}
+            {required && <span className="required-mark"> *</span>}
+          </label>
         )}
-      />
-      {touchedFields[name] && errorMsg && (
-        <>
-          <span className="controller-error">{errorMsg}</span>
-        </>
-      )}
-    </div>
+        {!label && children && children}
+        <RHFController
+          name={name}
+          control={control}
+          rules={{ validate, required }}
+          render={({ field }: { field: any; fieldState: any }) => (
+            <Component
+              id={id || name}
+              field={field}
+              disabled={disabled}
+              readOnly={readOnly}
+              placeholder={placeholder}
+              className={`controller-input ${errors[name] ? 'error' : ''}`}
+              onChange={onChange}
+              onClick={onClick}
+              onBlur={onBlur}
+              options={options}
+              length={length}
+              name={name}
+            />
+          )}
+        />
+      </div>
+      {/* <DevTool control={control} /> */}
+    </>
   );
 };
 

@@ -1,23 +1,31 @@
 .dob-select-container {
   display: flex;
+  /* justify-content: space-between; */
   gap: 0.5rem;
 }
 
 .dob-select {
   padding: 0.5rem;
-  font-size: 1rem;
-  border: 1px solid var(--primary-color);
+  font-size: var(--text-light);
+  border: 1px solid var(--clr-blue-110);
   border-radius: var(--border-radius);
   outline: none;
   transition: border-color 0.3s ease;
+  padding: 12px 14px;
+  background-color: var(--clr-white-400);
 }
 
 .dob-select:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+  border-color: var(--clr-green-260);
 }
 
 .dob-select:disabled {
   background-color: var(--disabled-color);
   cursor: not-allowed;
+}
+
+.dob-select {
+  option[value=''] {
+    color: var(--clr-blue-200);
+  }
 }

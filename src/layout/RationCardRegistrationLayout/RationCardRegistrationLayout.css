@@ -21,23 +21,83 @@
     width: 17%;
     background-color: var(--clr-white-400);
   }
+
+  &:has(.hidden) {
+    .bg-color-div {
+      display: none;
+    }
+  }
 }
 
 .ration-card-registration-sidebar-and-main-container
   .ration-card-registration-content-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: calc(var(--space) * 15) 1fr;
   width: 100%;
   max-width: var(--max-width);
   z-index: 10;
 
   gap: var(--gap);
+
+  &:has(.hidden) {
+    gap: 0;
+  }
 }
 
 .ration-card-registration-sidebar-and-main-container
   .ration-card-registration-content-container
   .main {
-  width: calc(100%);
+  width: 100%;
   display: flex;
   justify-content: center;
   padding-top: calc(var(--space) * 2.625);
+}
+
+/* ration-card-registration-layout-container */
+
+/* For screen sizes 1400px or higher */
+@media screen and (min-width: 1400px) {
+  .ration-card-registration-layout-container {
+    .bg-color-div {
+    }
+  }
+  .ration-card-registration-sidebar-and-main-container:has(.hidden) {
+    gap: 0px;
+  }
+}
+
+/* For screen sizes between 1280px and 1399px */
+@media screen and (max-width: 1399px) and (min-width: 1280px) {
+  .bg-color-div {
+  }
+}
+
+/* For screen sizes less than 1280px */
+@media screen and (max-width: 1279px) {
+  .bg-color-div {
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .ration-card-registration-sidebar-and-main-container
+    .ration-card-registration-content-container
+    .main {
+    width: calc(100% - 30vw);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .ration-card-registration-sidebar-and-main-container
+    .ration-card-registration-content-container
+    .main {
+    width: calc(100% - 35vw);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .ration-card-registration-sidebar-and-main-container
+    .ration-card-registration-content-container
+    .main {
+    width: calc(100% - 40vw);
+  }
 }

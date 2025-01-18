@@ -1,0 +1,19 @@
+.go-back-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  cursor: pointer;
+  border: none;
+}
+
+.go-back-text {
+  display: flex;
+  color: var(--clr-red-175); /*  #ed5c41 */
+  font-size: var(--text-small); /* 12px */
+  line-height: normal;
+  letter-spacing: normal;
+  padding-bottom: 2px;
+}

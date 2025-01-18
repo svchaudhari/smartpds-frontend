@@ -1,11 +1,13 @@
-export function formatNumber(num: string | number | bigint) {
+export function formatNumber(num: any) {
   let value: number | bigint = -1;
   try {
     value = BigInt(num);
   } catch (error) {
     return num;
   }
-  return new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(value);
+  return new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(
+    value
+  );
 }
 
 export function stringToBigInt(value: string): BigInt | Error {

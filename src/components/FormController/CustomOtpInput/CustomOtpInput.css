@@ -1,0 +1,24 @@
+.custom-otp-container {
+  display: flex;
+  justify-content: center;
+}
+
+.custom-otp-input {
+  width: 3.75rem;
+  aspect-ratio: 1/1;
+  text-align: center;
+  border: 1px solid var(--clr-black-220);  /* #dedede */
+  border-radius: var(--bdr-4); /* 4px */
+  font-size: var(--text-normal); /* 16px */
+  font-weight: 600;
+  background-color: var(--clr-white-400); /* #fff */
+  margin: 20px;
+  outline: none;
+  padding: 20px 0;
+  transition: var(--otp-border-color) 0.3s ease;
+}
+
+.custom-otp-input:focus{
+  border-color: var(--clr-green-260); /* #31b079 */
+  box-shadow: 0 0 5px rgba(49, 176, 121, 0.5);
+}

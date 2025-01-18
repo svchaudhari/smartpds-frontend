@@ -1,0 +1,22 @@
+.details-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(500px, 1fr));
+}
+
+.details-container .details-content-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.details-container .details-content-container .property {
+  flex-grow: 0;
+  opacity: 0.4;
+  font-size: var(--text-light);
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--clr-blue-700);
+}

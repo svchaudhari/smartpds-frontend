@@ -1,0 +1,56 @@
+section.ration-card-sub-section {
+  margin-top: var(--space-sm);
+  h3 {
+    margin-bottom: var(--space);
+    font-size: calc(var(--space));
+    font-weight: var(--font-ultra-bold);
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: -0.2px;
+    text-align: left;
+    color: #030229;
+  }
+  &.column-1 {
+    grid-column: span 1;
+  }
+  &.column-2 {
+    grid-column: span 2;
+  }
+  &.column-3 {
+    grid-column: span 3;
+  }
+  &.row-1 {
+    grid-row: span 1;
+  }
+  &.row-2 {
+    grid-row: span 2;
+  }
+  &.row-3 {
+    grid-row: span 3;
+  }
+}
+
+.ration-card-sub-section-body-container {
+  display: grid;
+  grid-column-gap: 24px;
+  &.column-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  &.column-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  &.column-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &.row-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  &.row-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  &.row-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

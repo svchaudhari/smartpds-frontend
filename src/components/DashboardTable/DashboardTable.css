@@ -1,0 +1,64 @@
+.dashboard-table {
+  border-radius: 10px;
+  table {
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--clr-white-400);
+    border-collapse: collapse;
+    border: none;
+    tr {
+      border-bottom: 1px solid #e5e7eb;
+    }
+    th {
+      border: none;
+      font-size: 14px;
+    }
+
+    td {
+      border: none;
+      font-size: 14px;
+      padding: 6px 10px;
+    }
+    td.pendency-box {
+      border-radius: 50px;
+      background: #fbf4d0;
+      color: #224264;
+      font-size: 12px;
+      font-weight: var(--font-semi-bold);
+      width: fit-content;
+      display: flex;
+      margin: auto;
+    }
+    td.action-box {
+      color: #eca529;
+      font-size: 12px;
+      text-decoration: underline;
+      font-weight: var(--font-semi-bold);
+    }
+    td.type {
+      border-radius: 50px;
+      background: var(--clr-green-190);
+      color: #224264;
+      font-size: 12px;
+      font-weight: var(--font-semi-bold);
+      margin: auto;
+      text-align: center;
+    }
+    td.type.New-Request {
+      color: #1f9254;
+      background-color: #ebf9f1;
+    }
+    td.type.Re-Submitted {
+      color: #cd6200;
+      background-color: #fef2e5;
+    }
+    td.type.transfer {
+      color: #cd6200;
+      background-color: #fef2e5;
+    }
+    td.sr-no {
+      display: block;
+      margin: 14px 8px;
+    }
+  }
+}

@@ -1,8 +1,9 @@
 import { Outlet } from 'react-router';
-import "./UnverifiedUser.css";
+import './UnverifiedUser.css';
 import { Images } from '../../../assets';
 import { Carousel } from 'react-responsive-carousel';
 import CarouselCard from '../../../components/Carousel/Card';
+import { Fragment } from 'react';
 
 const UnverifiedUser = () => {
   return (
@@ -32,14 +33,16 @@ const UnverifiedUser = () => {
                 >
                   {Array(5)
                     .fill('')
-                    .map((t) => (
-                      <CarouselCard
-                        title={'Food Supply Details'}
-                        num={'4532234'}
-                        percentage={'12'}
-                        subtitle="compared to last year"
-                        isIncreased={true}
-                      />
+                    .map((_, index) => (
+                      <Fragment key={index}>
+                        <CarouselCard
+                          title={'Food Supply Details'}
+                          num={'4532234'}
+                          percentage={'12'}
+                          subtitle="compared to last year"
+                          isIncreased={true}
+                        />
+                      </Fragment>
                     ))}
                 </Carousel>
                 <div className="moto">

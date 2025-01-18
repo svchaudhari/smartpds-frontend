@@ -1,0 +1,6 @@
+.tabs-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f4f4f4;
+  padding: 10px  0;
+}

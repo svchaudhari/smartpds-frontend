@@ -1,13 +1,20 @@
 import { FC } from 'react';
 import './CustomNumberInput.css';
 
-const CustomNumberInput: FC<any> = ({ field, onChange, onClick, ...props }) => (
+const CustomNumberInput: FC<any> = ({
+  field,
+  onChange,
+  onClick,
+  onBlur,
+  ...props
+}) => (
   <input
+    type="number"
     {...field}
     {...props}
     onChange={onChange || field.onChange}
     onClick={onClick}
-    type="number"
+    onBlur={onBlur || field.onBlur}
   />
 );
 export default CustomNumberInput;

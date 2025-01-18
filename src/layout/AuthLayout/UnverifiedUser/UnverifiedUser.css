@@ -1,15 +1,4 @@
 .unverified-user-container {
-  --space: 1rem;
-  --dark-slate-blue: #1d3670;
-  --dark-blue: #030229;
-  --dark-secondary: #006c51;
-  --dark-text-1: #666;
-  --text-normal: 16px;
-  --text-large: 32px;
-  --font-medium: 500;
-  --font-semi-bold: 600;
-  --font-bold: 700;
-  --font-ultra-bold: 800;
   min-width: 98dvw;
   min-height: 100dvh;
   display: flex;
@@ -17,7 +6,7 @@
   padding-bottom: var(--space);
 }
 
-.unverified-user-content-container{
+.unverified-user-content-container {
   width: 100%;
   max-width: 1440px;
   padding: calc(var(--space) * 2);
@@ -26,14 +15,19 @@
   gap: calc(var(--space) * 2);
 }
 
-.unverified-user-content-container .left{
+.unverified-user-content-container .left {
   display: block;
   width: calc(var(--space) * 32);
   min-height: 100%;
   max-height: fit-content;
-  padding: calc(var(--space) * 1.5) calc(var(--space) * 3.75) calc(var(--space) * 4.5) calc(var(--space) * 2.75);
+  padding: calc(var(--space) * 1.5) calc(var(--space) * 3.75)
+    calc(var(--space) * 4.5) calc(var(--space) * 2.75);
   border-radius: 16px;
-  background-image: linear-gradient(140deg, var(--dark-slate-blue) 3%, #050a14 161%);
+  background-image: linear-gradient(
+    140deg,
+    var(--clr-blue-350) 3%,
+    #050a14 161%
+  );
 }
 
 @supports (-moz-appearance: none) {
@@ -43,7 +37,7 @@
   }
 }
 
-.bottom-container{
+.bottom-container {
   margin-top: calc(var(--space) * 5.875);
 
   display: flex;
@@ -53,17 +47,17 @@
   max-height: 800px;
 }
 
-.National-Food-Security-moto{
+.National-Food-Security-moto {
   color: white;
   font-size: calc(var(--text-normal) * 1.25);
   font-weight: var(--font-semi-bold);
 
   text-transform: uppercase;
 
-  p{
+  p {
     width: 100%;
 
-    &:first-child{
+    &:first-child {
       margin-left: calc(var(--space) * 0.5);
     }
   }
@@ -72,9 +66,9 @@
     text-align: center;
   }
 
-  strong{
+  strong {
     font-weight: var(--font-ultra-bold);
-    -webkit-text-stroke: 0.6px white;
+    -webkit-text-stroke: 0.6px var(--clr-white-400);
     font-size: calc(var(--text-normal) * 1.875);
     line-height: 1;
     letter-spacing: 1.5px;
@@ -89,32 +83,31 @@
   }
 }
 
-.carousal-container{
-  background-color: white;
+.carousal-container {
+  background-color: var(--clr-white-400);
   width: calc(var(--space) * 21.875);
   height: calc(var(--space) * 22.875);
   margin: calc(var(--space) * 4.75) calc(var(--space) * 2.5) 0 var(--space);
-  padding: calc(var(--space)*6) calc(var(--space) * 1.5) calc(var(--space) * 1.75) calc(var(--space) * 1.25);
-  border-radius: 16px;
+  padding: calc(var(--space) * 6) calc(var(--space) * 1.5)
+    calc(var(--space) * 1.75) calc(var(--space) * 1.25);
+  border-radius: var(--bdr-16);
 
-
-  color: #e02626;
+  color: var(--clr-red-180);
   background-color: beige;
 }
-.carousal-container .carousal-content-container{
+.carousal-container .carousal-content-container {
   position: relative;
   height: 100%;
 }
 
-.carousel-root{
-  
+.carousel-root {
 }
 
-.carousal-container .moto{
+.carousal-container .moto {
   position: absolute;
   bottom: 0;
   left: 0;
-  color: var(--dark-secondary);
+  color: var(--clr-green-390);
   font-size: var(--text-normal);
   font-weight: var(--font-ultra-bold);
   font-stretch: normal;

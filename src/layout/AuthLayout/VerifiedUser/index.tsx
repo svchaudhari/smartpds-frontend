@@ -1,22 +1,20 @@
-import { Outlet, useNavigate } from 'react-router';
-import { useSessionStorage } from '../../../hooks';
+import { Outlet } from 'react-router';
 import _ from 'lodash';
 import { useEffect } from 'react';
 import './VerifiedUser.css';
 import VerifiedUserLayoutHeader from '../../../components/VerifiedUserLayout/Header';
 
-
 const VerifiedUserLayout = () => {
-  const [storedValue] = useSessionStorage('auth-token', '');
-  const navigate = useNavigate();
-  
+  // const [storedValue] = useSessionStorage('auth-token', '');
+  const storedValue = sessionStorage.getItem('auth-token');
+
+  // const navigate = useNavigate();
+
   useEffect(() => {
-    if(!(storedValue)){
+    if (storedValue) {
       // navigate('/login');
     }
-    console.log('storedValue', storedValue)  
-  }, [])
-  
+  }, []);
 
   return (
     <section className="verified-user-container">

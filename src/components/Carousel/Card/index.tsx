@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { formatNumber } from '../../../utilities/number.utils';
 import './CarouselCard.css';
 

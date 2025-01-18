@@ -1,5 +1,4 @@
 .custom-button {
-  padding: 0.5rem 1rem;
   border-radius: 4px;
   border: none;
   font-size: 1rem;
@@ -16,7 +15,6 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 12px 32px;
   border-radius: var(--bdr-4);
   &:focus-visible {
     outline: 1px solid;
@@ -33,7 +31,7 @@
     border-color 0.3s,
     box-shadow 0.3s,
     transform 0.3s,
-    s outline 0.3s ease-in-out;
+    outline 0.3s ease-in-out;
 }
 
 .custom-button:hover {
@@ -65,32 +63,26 @@
 }
 
 .custom-button.button-outlined {
-  border: 2px solid var(--button-bg);
+  border: 1px solid var(--button-bg);
   color: var(--button-bg);
-  background-color: transparent;
-
-  width: 106px;
-  height: 48px;
+  background-color: var(--clr-white-400);
   flex-grow: 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 8px;
-  padding: 12px 32px;
-  border-radius: 4px;
-  border: solid 1px #ddd;
-  background-color: #fff;
+  gap: var(--space-sm);
+  /* padding: 12px 32px; */
+  border-radius: var(--bdr-4);
 
   span.button-text {
-    font-size: 18px;
-    font-weight: 600;
+    font-size: var(--text-normal);
+    font-weight: var(--font-semi-bold);
     font-stretch: normal;
     font-style: normal;
     line-height: 1.44;
     letter-spacing: -0.2px;
     text-align: center;
-    color: #414141;
   }
 }
 
@@ -107,7 +99,7 @@
 }
 
 .custom-button.button-error {
-  --button-bg: #dc3545;
+  --button-bg: var(--clr-red-175);
 }
 
 .custom-button.button-info {
@@ -120,21 +112,24 @@
 
 .custom-button.button-small {
   font-size: 0.875rem;
-  padding: 0.25rem 0.75rem;
+  font-size: var(--text-light);
 }
 
 .custom-button.button-medium {
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
+  font-size: var(--text-normal);
 }
 
 .custom-button.button-large {
-  font-size: 1.25rem;
-  padding: 0.75rem 1.5rem;
+  font-size: calc(var(--text-normal) * 1.5);
+  /* padding: 0.75rem 1.5rem; */
 }
 
 .custom-button.full-width {
   width: 100%;
+
+  &:hover {
+    transform: none;
+  }
 }
 
 .icon-left,
