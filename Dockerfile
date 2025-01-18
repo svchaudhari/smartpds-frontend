@@ -3,16 +3,11 @@ FROM node:23-alpine3.20 AS build
 WORKDIR /app
 
 # Leverage caching by installing dependencies first
-COPY package*.json ./
-
-# Clear npm cache and upgrade npm
-RUN npm cache clean --force
-RUN npm install -g npm@latest
-
-# Install dependencies with additional flags for compatibility
+COPY package.json package-lock.json ./
 RUN npm install --legacy-peer-deps --verbose
 
 # Copy the rest of the application code and build for production
+COPY . ./
 RUN npm run build
 
 # Stage 2: Development environment
@@ -20,11 +15,11 @@ FROM node:23-alpine3.20 AS development
 WORKDIR /app
 
 # Install dependencies again for development
-
-RUN npm install
+COPY package.json package-lock.json ./
+RUN npm install --legacy-peer-deps --verbose
 
 # Copy the full source code
-#COPY . ./
+COPY . ./
 
 # Expose port for the development server
 EXPOSE 3000
