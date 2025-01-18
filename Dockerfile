@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Leverage caching by installing dependencies first
 COPY package*.json ./
-RUN npm ci  --prefer-offline
+RUN npm install
 
 # Copy the rest of the application code and build for production
 RUN npm run build
@@ -15,7 +15,7 @@ WORKDIR /app
 
 # Install dependencies again for development
 
-RUN npm ci  --prefer-offline
+RUN npm install
 
 # Copy the full source code
 #COPY . ./
