@@ -1,12 +1,9 @@
-#!/bin/sh
+
 
 #!/bin/sh
-
-set -x # Enable script debugging
-echo "Checking version for folder: $1"
 
 if [ -z "$1" ]; then
-    FOLDER=
+    FOLDER=.
 else
     FOLDER=$1/
 fi
@@ -14,7 +11,8 @@ fi
 if [ -f "${FOLDER}pom.xml" ]; then
     cat ${FOLDER}pom.xml | oq -i xml -r '.project.version' | cut -d'-' -f1
 elif [ -f "${FOLDER}package.json" ]; then
-    cat ${FOLDER}package.json | jq -r '.version'
+    VERSION=$(sed -n 's/.*"version": "\(.*\)",/\1/p' ${FOLDER}package.json)
+    echo $VERSION
 elif [ -f "${FOLDER}VERSION" ]; then
     cat ${FOLDER}VERSION
 else
