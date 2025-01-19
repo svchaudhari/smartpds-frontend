@@ -1,5 +1,3 @@
-
-
 #!/bin/bash
 
 # Default values
@@ -13,25 +11,47 @@ PORT=8084
 SERVICE_PORT=$PORT
 TARGET_PORT=$PORT
 TERMINATION_GRACE_PERIOD=30
-SERVICE_NAME="$DEPLOYMENT_NAME"
 CONFIGMAP_DB="smart-db-config"
 CONFIGMAP_HOST="pds-service-host"
 SECRET_DB="db"
 INIT_CONTAINER_ENABLED=false
 DB_MIGRATION_ENABLED=false
 GIT_SYNC_ENABLED=false
-ENABLE_PROBES=true
+ENABLE_PROBES=false
 MEMORY_REQUEST="256Mi"
 CPU_REQUEST="250m"
 MEMORY_LIMIT="512Mi"
 CPU_LIMIT="500m"
-DEPLOY_DB_VARS=true
+DEPLOY_DB_VARS=false
+EXTERNAL_ENV_FILE="external-var-frontend.txt"  # Path to external file
+
 
 
 # Function to print usage
 usage() {
   echo "Usage: $0 [-n namespace] [-d deployment_name] [-i image] [-r replicas] [-e1 env_var_1] [-e2 env_var_2] [-p port] [-sp service_port] [-tp target_port] [-t termination_grace_period] [-c configmap_name] [-s secret_name] [-ep enable_probes] [-db deploy_db_vars]"
   exit 1
+}
+
+# Function to append environment variables from an external file
+
+# Function to append environment variables from an external file
+append_external_env_vars() {
+  if [[ -f "$EXTERNAL_ENV_FILE" ]]; then
+    while IFS= read -r line; do
+      # Skip empty lines and lines starting with '#'
+      if [[ -n "$line" && ! "$line" =~ ^# ]]; then
+        ENV_NAME=$(echo $line | cut -d '=' -f 1)
+        ENV_VALUE=$(echo $line | cut -d '=' -f 2-)
+        cat <<EOF >> ${DEPLOYMENT_NAME}-deployment.yaml
+            - name: $ENV_NAME
+              value: $ENV_VALUE
+EOF
+      fi
+    done < "$EXTERNAL_ENV_FILE"
+  else
+    echo "External environment file '$EXTERNAL_ENV_FILE' not found."
+  fi
 }
 
 # Parse command-line arguments
@@ -171,7 +191,7 @@ spec:
       securityContext: {}
       containers:
         - name: $DEPLOYMENT_NAME
-          image: svchaudhari/$DEPLOYMENT_NAME:master-1
+          image: $IMAGE
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: $PORT
@@ -199,6 +219,7 @@ spec:
             - name: JAVA_OPTS
               value: "-Xmx384m -Xms256m"
 EOF
+append_external_env_vars
 create_deployment_with_db_vars
 create_deployment_with_probes
 # Conditionally include init containers
@@ -249,17 +270,24 @@ if [[ -z "$EXISTING_SERVICE" ]]; then
 apiVersion: v1
 kind: Service
 metadata:
-  name: $SERVICE_NAME
-  namespace: $NAMESPACE
+  annotations:
   labels:
     app: $DEPLOYMENT_NAME
+  name: $DEPLOYMENT_NAME
+  namespace: $NAMESPACE
 spec:
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: http
+    port: $PORT
+    protocol: TCP
+    targetPort: $PORT
   selector:
     app: $DEPLOYMENT_NAME
-  ports:
-  - protocol: TCP
-    port: $SERVICE_PORT
-    targetPort: $TARGET_PORT
+  sessionAffinity: None
   type: ClusterIP
 EOF
 
@@ -274,19 +302,25 @@ else
 apiVersion: v1
 kind: Service
 metadata:
-  name: $SERVICE_NAME
-  namespace: $NAMESPACE
+  annotations:
   labels:
     app: $DEPLOYMENT_NAME
+  name: $DEPLOYMENT_NAME
+  namespace: $NAMESPACE
 spec:
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: http
+    port: $PORT
+    protocol: TCP
+    targetPort: $PORT
   selector:
     app: $DEPLOYMENT_NAME
-  ports:
-  - protocol: TCP
-    port: $SERVICE_PORT
-    targetPort: $TARGET_PORT
+  sessionAffinity: None
   type: ClusterIP
 EOF
   echo "Service '$SERVICE_NAME' updated successfully."
 fi
-
