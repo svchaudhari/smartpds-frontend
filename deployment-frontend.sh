@@ -1,3 +1,5 @@
+
+
 #!/bin/bash
 
 # Default values
@@ -23,7 +25,7 @@ CPU_REQUEST="250m"
 MEMORY_LIMIT="512Mi"
 CPU_LIMIT="500m"
 DEPLOY_DB_VARS=false
-EXTERNAL_ENV_FILE="external-var-frontend.txt"  # Path to external file
+EXTERNAL_ENV_FILE="/home/smartpds/k8s-smartpds/frontend/external-var-frontend.txt"  # Path to external file
 
 
 
@@ -315,12 +317,15 @@ spec:
   ports:
   - name: http
     port: $PORT
+    nodePort: 30003
     protocol: TCP
     targetPort: $PORT
   selector:
     app: $DEPLOYMENT_NAME
   sessionAffinity: None
-  type: ClusterIP
+  type: NodePort
 EOF
   echo "Service '$SERVICE_NAME' updated successfully."
 fi
+
+
